@@ -1,3 +1,42 @@
+```mermaid
+graph TD
+    A(Load Flight Data Task) --> B(Analyze Delays Task)
+    B --> C{Delay Threshold Met?}
+    C -->|Yes| D(Activate Listmonk Validators Campaign)
+    C -->|No| E(Skip Notification Task)
+    D --> F{Validators' Response?}
+    F -->|Non-Fault or Too Late| G(Create Zammad Ticket)
+    F -->|Fault| H(Activate Airport Campaign)
+    H --> I(Create Discord Chat & Initiate HTML Form)
+    I --> J{Manager Decision?}
+    J -->|Close| K(End Process)
+    J -->|Activate| L(Invite Agents to Discord Chat)
+    L --> M(Agents Fill Form with Passenger Details)
+    M --> N(Register Passenger in Campaign & Send Form)
+    N --> O(Collate Forms for Flight)
+    O --> P(Send Combined Invoice to Invoice Ninja)
+    style A fill:#FFD700, stroke:#000, stroke-width:2px
+    style B fill:#87CEEB, stroke:#000, stroke-width:2px
+    style C fill:#FFA500, stroke:#000, stroke-width:2px
+    style D fill:#90EE90, stroke:#000, stroke-width:2px
+    style E fill:#FF0000, stroke:#000, stroke-width:2px
+    style F fill:#DAA520, stroke:#000, stroke-width:2px
+    style G fill:#4682B4, stroke:#000, stroke-width:2px
+    style H fill:#32CD32, stroke:#000, stroke-width:2px
+    style I fill:#BA55D3, stroke:#000, stroke-width:2px
+    style J fill:#FF69B4, stroke:#000, stroke-width:2px
+    style K fill:#B22222, stroke:#000, stroke-width:2px
+    style L fill:#8B4513, stroke:#000, stroke-width:2px
+    style M fill:#6A5ACD, stroke:#000, stroke-width:2px
+    style N fill:#3CB371, stroke:#000, stroke-width:2px
+    style O fill:#FFB6C1, stroke:#000, stroke-width:2px
+    style P fill:#D2B48C, stroke:#000, stroke-width:2px
+```
+
+
+
+
+
 Flight Delay Claim Automation Plan
 ----------------------------------
 
